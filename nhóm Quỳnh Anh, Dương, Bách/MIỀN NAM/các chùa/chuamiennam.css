@@ -1,0 +1,124 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'EB Garamond', serif;
+}
+
+.banner{
+    min-height: 70vh;
+    background-image: linear-gradient(rgba(56, 51, 51, 0.674), rgba(172, 163, 163, 0.674)), url(https://cafefcdn.com/thumb_w/650/pr/2022/photo1663139646925-1663139647042680459761-63798761920305.jpg); 
+    background-size: cover;
+    background-attachment: fixed;
+}
+h1{
+    font-weight:bold;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    color: white;
+
+
+}
+h2{
+    color: orange;
+}
+
+
+.miennam_heading{
+    font-size: 20px;
+    color: black;
+    padding-left: 400px;
+}
+
+.chua{
+    display: flex;
+    padding: 30px 0px;
+    color: black;
+}
+
+.content_left{
+    width: 50%;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.content_right{
+    width: 50%;
+    padding-right: 20px;
+}
+
+img{
+    margin-top: 50px;
+    border-radius: 4px;
+    width: 600px;
+    height: 350px;
+}
+
+a{
+    font-size: 23px;
+}
+
+.small_heading{
+    font-size: 30px;
+}
+/* ----------------------icon home------------------------- */
+.icon{
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+}
+
+.icon:hover{
+    background-color: rgb(255, 132, 0);
+}
+
+
+    body ::-webkit-scrollbar{
+        width: 10px;
+    }
+
+    /* TOGGLE BUTTON */
+.toggle{
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    /* color: black;     */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+
+}
+.toggle::before{
+    content: '\f186';
+    font-family: fontAwesome;
+    font-size: 24px;
+}
+body.light .toggle{
+    background: white;
+    color: black;
+    
+}
+body.light .toggle::before{
+    content: '\f0eb';
+    font-family: fontAwesome;
+}
+body.light{
+    background-color: rgb(47, 35, 35);
+}
+body.light .para{
+    color: white;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="contact.css" />
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <form onsubmit="sendEmail(); reset();">
+        <label for="fname">Họ và tên</label>
+        <input
+          type="text"
+          id="fname"
+          name="firstname"
+          placeholder="Your name.."
+        />
+
+        <label for="lname">Số điện thoại</label>
+        <input
+          type="text"
+          id="phone"
+          name="phonenumber"
+          placeholder="Your phone number.."
+        />
+
+        <label for="mail">Email</label>
+        <input type="text" id="mail" name="email" placeholder="Your email.." />
+
+        <label for="subject">Chúng tôi giúp gì được bạn?</label>
+        <textarea 
+          id="subject"
+          name="subject"
+          placeholder="Write something.."
+          style="height: 200px"
+        ></textarea>
+
+        <input type="submit" value="Gửi " />
+      </form>
+    </div>
+  
+    <script>
+      function sendEmail() {
+    //     Email.send({
+    // SecureToken : "ce445a09-4efd-4876-b031-9e278b0a1187",
+    // To : 'namduongn306@gmail.com',
+    // From : "namduongn306@gmail.com",
+    // Subject : "This is the subject",
+    // Body: "Họ và tên: " + document.getElementById("fname").value
+    //       + "<br> Số điện thoại: " +document.getElementById("phone").value
+    //       + "<br> Email: " +document.getElementById("mail").value
+    //       + "<br> Ý kiến: " +document.getElementById("subject").value
+
+    //     }).then((message) => alert("Đã gửi vào gmail"));
+        Email.send({
+          Host: "smtp.elasticemail.com",
+          Username: "namduongn306@gmail.com",
+          Password: "C3610E4D8748F5DB1282A2E3B8D5631D846A",
+          To: "namduongn306@gmail.com",
+          From: document.getElementById("mail").value,
+          Subject: "New Contact Form Enquiry",
+          Body: "Họ và tên: " + document.getElementById("fname").value
+          + "<br> Số điện thoại: " +document.getElementById("phone").value
+          + "<br> Email: " +document.getElementById("mail").value
+          + "<br> Ý kiến: " +document.getElementById("subject").value
+
+        }).then((message) => alert("Đã gửi vào gmail"));
+      }
+    </script>
+  </body>
+</html>

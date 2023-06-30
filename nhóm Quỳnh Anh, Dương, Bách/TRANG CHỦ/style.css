@@ -1,0 +1,595 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'EB Garamond', serif
+}
+.header{
+    z-index: 999;
+    /* z-index: số to nhất thì sẽ hiện ở trên; z-index: 999 là luôn đảm bản nó đc ở vị trí cao nhất
+    no matter what happened */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 200px;    
+    transition: 0.5s ease;
+    font-family: 'Noto Serif', serif;
+}
+.header .brand{
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    /* bỏ gạch ngang ở link */
+}
+.search{
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.2);
+    width: 60%;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+.search-bar input{
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    font-size: 15px;
+}
+#menu_list li{
+    display: none;
+}
+.search-bar button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    
+}
+.search-bar .autocom-box{
+    padding: 10px 8px;
+    max-height: 280px;
+    opacity: 0;
+    pointer-events: none;
+}
+.autocom-box li {
+    list-style-type: none;
+    padding: 4px 12px;
+    display: none;
+}
+.header .nav{
+    display: none;
+}
+.header .nav.active{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(1, 1, 1, 0.5);
+}
+.nav .nav-links a{
+position: relative;
+color:black;
+font-size: 18px;
+font-weight: 500;
+text-decoration: none;
+margin: 20px;
+transition: 0.3s ease;
+}
+.nav.active .nav-links{
+    background-color: rgb(225, 211, 211);
+    width: 400px;
+    margin: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+.nav .nav-links a:before{
+    content:'';
+    position: absolute;
+    background: black;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s ease;
+    /* top,bottom,left 0 -> full 100% */
+} 
+.nav .nav-links a:hover:before{
+    width: 100%;
+}
+.menu-btn{
+    position: absolute;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    right: 30px;
+    background-color: transparent;
+    border: none;
+    transition: 0.3 ease;
+}
+.menu-btn img{
+    width: 20px;
+}
+.menu-btn i:focus{
+    opacity: 0;
+}
+
+.menu-btn.active{
+    z-index: 999;
+    background: url(/img/bars.png) no-repeat;
+    background-size: 20px;
+    background-position: center;
+    transition: 0.3 ease;
+}
+
+
+
+/* -------------------------TRANG CHỦ --------------------------------*/
+.home{
+    padding: 100px 200px;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(31, 30, 30, 0.286);
+    color: white;
+}
+.home:before{
+    z-index: 777;
+    content: '';
+    position: absolute;
+    background: rgba(37, 35, 35, 0.286);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.content{
+z-index: 888    ;
+color: white;
+width: 70%;
+margin-top: 50px;
+font-family: 'Noto Serif', serif;
+display: none;
+}
+.content.active{
+    display: block;
+}
+.content h1{
+    font-size: 50px;
+    font-weight: 700;
+}
+.content p {
+    margin-bottom: 65px;
+}
+.content a{
+    background-color: white;
+    padding: 15px 35px;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 30px;
+}
+.media-icons{
+    z-index: 888;
+    position: absolute;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s ease;
+}
+
+.media-icons a{
+    font-size: 20px;
+    color: white;
+    margin-bottom: 20px;
+}
+.media-icons a:hover{
+    transform: scale(1.3);
+    /* phóng to */
+}
+/* video slider */
+.vid .video-slide{
+    z-index: 000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    clip-path: circle(0 at 0 50%);
+}
+.video-slide.active{
+    clip-path: circle(150% at 0 50%);
+    transition: 2s ease;
+    transition-property: clip-path;
+}
+.slider-nav{
+    z-index: 888;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(80px);
+}
+.nav-btn{
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3 ease;
+}
+.nav-btn:not(:last-child){
+    margin-right: 20px;
+
+}
+.nav-btn:hover{
+    transform: scale(1.2);
+}
+.nav-btn.active{
+    background: rgba(160, 155, 155, 0.747);
+
+}
+/* --------------------------SỐ LIỆU---------------------- */
+.number{
+    min-height: 60vh;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 100px;
+}
+.number span{
+    font-size: 40px;
+    color: rgb(245, 137, 137);
+}
+.number i{
+    font-size: 30px;
+}
+
+.number__content{
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.number__item p:first-of-type{
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.number__item p:last-of-type{
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    padding: 24px 0;
+}
+/* --------------------GIỚI THIỆU------------------------------ */
+.prep{
+    text-align: center; 
+    padding-top: 100px;
+    background-image: linear-gradient(rgba(117, 105, 105, 0.674), rgba(172, 163, 163, 0.674)), url(https://cafefcdn.com/thumb_w/650/pr/2022/photo1663139646925-1663139647042680459761-63798761920305.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 130vh;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.titile2{
+    color: floralwhite;
+    font-size: 50px;
+    font-family: 'EB Garamond', serif;
+}
+.subtitile2{
+    
+    color: floralwhite;
+    font-size: 20px;
+    font-family: 'EB Garamond', serif;
+}
+.container{
+   position: relative;
+   margin-top: 50px;
+   display: flex;
+   justify-content: center;
+   text-align: center; 
+    
+}
+.card{
+    position: relative;
+    width: 400px;
+    height: 300px;
+    margin: 20px;
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+    border-radius: 20px;
+    background: linear-gradient( 45deg, antiquewhite, rgb(216, 188, 188) ) ;
+}
+.container .card img{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 400px;
+    transition: 0.5s;
+}
+.container .card:hover img{
+    left: 75%;
+    height: 400px;
+}
+.container .card .content-1 {
+    position: relative;
+    width: 60%;
+    left: 0;
+    padding: 20px 20px 20px 40px;
+}
+.container .card .content-2{
+    position: relative;
+    width: 50%;
+    left: 0;
+    padding: 20px 20px 20px 40px;
+}
+.container .card p span{
+    font-weight: bold;
+    font-size: 20px;
+}
+.card p{
+    font-size: 18px;
+}
+/* -------------------------DỊCH VỤ --------------------------------*/
+.service{
+    padding-top: 100px;
+    margin: auto;
+    padding-left: 60px;
+    padding-right: 60px;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(84, 76, 76, 0.715), rgba(160, 150, 150, 0.674)), url(https://vtv1.mediacdn.vn/thumb_w/650/2017/vietnam-1505881124562.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+.service h1{
+    text-align: center;
+    font-size: 50px ;
+    margin-bottom: 20px;
+    color: rgb(251, 198, 198);    
+}
+.service p{
+    text-align: center;
+    font-size: 20px;
+}
+.detail-row{
+    display: flex;
+    justify-content:center;
+    text-align: center;
+}
+
+.detail{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 30px;
+    display: block;
+    justify-content:center;
+    text-align: center;
+    border: 1px solid #f0eded;
+    padding: 40px 10px;
+    border-radius: 4px ;
+    background: linear-gradient( 45deg, antiquewhite, rgb(216, 188, 188) )
+}
+.detail i{
+    font-size: 40px;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: 5px 10px 30px rgba(58, 56, 56, 0.358);
+    color: rgb(224, 105, 87);
+}
+.detail:hover{
+    box-shadow: 5px 30px 56px rgba(41, 39, 39, 0.781);
+}
+/* -------------------------BẢN ĐỒ --------------------------------*/
+
+.map{
+    padding-top: 70px;
+    padding-bottom: 50px;
+    width: 80%;
+    margin: auto;
+}
+
+.text{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 50px;
+    
+}
+.text p{
+    font-size: 20px;
+}
+.container-map{
+    display: flex;
+    justify-content: center;
+    flex-basis: 30%;
+    margin-top: 40px;
+}
+.text-box{
+    display: flex;
+    margin-left: 30px;
+}
+
+.container-1{
+    flex-basis: 35%;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.container-1 .box-1{
+    position: relative;
+    width: 350px;
+    height: 240px;
+    
+}
+.container-1 .box-1 .vid-1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.container-1 .box-1 .img-1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: screen;
+}
+/*------------------------------------  */
+.container-2{
+    
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.container-2 .box-2{
+    position: relative;
+    width: 250px;
+    height: 430px;
+}
+.container-2 .box-2 .vid-2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.container-2 .box-2 .img-2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: screen;
+}
+/*------------------------------------  */
+.container-3{
+    padding-left: 20px;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.container-3 .box-3{
+    position: relative;
+    width: 310px;
+    height: 300px;
+}
+.container-3 .box-3 .vid-3{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.container-3 .box-3 .img-3{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: screen;
+}
+
+.mbac{
+    margin-left: 150px;
+    font-weight: bold;
+}
+
+.mtrung{
+    margin-left:210px;
+    font-weight: bold;
+}
+
+.mnam{
+    margin-left: 300px;
+    font-weight: bold;
+}
+.text-box{
+    font-size: 20px;
+}
+.search-bar i{
+    margin-left: 250px;
+}
+
+/* -------------------------FOOTER --------------------------------*/
+.footer{
+    margin-top: 100px;
+    background-color: black;
+}
+.box-container{
+    display: flex;
+    min-height: 30vh;
+    justify-content: center;
+}
+.box{
+    font-size: 13px;
+    color: white;
+    padding: 20px 0;
+    margin-right: 150px;
+    
+}
+.box a{
+    display: block ;
+    color: white;
+    font-size: 15px;
+    padding: 10px 0;
+}
+.credit{
+    
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
+.credit span{
+    color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* relative: khi thay đổi không ảnh hưởng tới layout xung quanh (Dùng cho cả div to)
+absolute: dùng khi muốn chỉnh số liệu precisely và làm thay đổi layout bên ngoài, thường dùng 
+cho phần tử con */

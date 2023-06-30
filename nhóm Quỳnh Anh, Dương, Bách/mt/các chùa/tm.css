@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'EB Garamond', serif;
+   
+}
+.banner{
+    min-height: 70vh;
+    background-image: linear-gradient(rgba(56, 51, 51, 0.674), rgba(172, 163, 163, 0.674)), url(https://cafefcdn.com/thumb_w/650/pr/2022/photo1663139646925-1663139647042680459761-63798761920305.jpg); 
+    background-size: cover;
+    background-attachment: fixed;
+}
+body{
+    
+    background-color: white;
+}
+h1{
+    font-weight:bold;
+    text-align: center;
+    justify-content: center;
+    transform: translateY(400%);
+    /* padding-top: 100px;
+    padding-bottom: 100px; */
+    color: white;
+
+
+}
+p{
+    color: black;
+    font-weight: 500;
+}
+.all{
+    width: 80%;
+    margin: auto;
+}
+
+img{
+    width: 600px;
+    margin-top: 50px;
+    padding-bottom: 60px;
+    padding-left: 20%;
+}
+
+.in{
+    text-align: center;
+    font-style: italic;
+    font-weight: 900;
+    padding-bottom: 50px;
+}
+
+p{
+    padding-bottom: 50px;
+    font-size: 23px;
+}
+
+h2{
+    padding-bottom: 20px;
+    color: orange;
+}
+/* HOME BUTTON */
+.icon{
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+}
+
+.icon:hover{
+    background-color: rgb(255, 132, 0);
+}
+
+
+body ::-webkit-scrollbar{
+        width: 3px;
+    }
+
+body ::-webkit-scrollbar-thumb{
+   border-radius: 100px;
+   background-image: linear-gradient(to bottom, #ffa400, #00aefd);
+}
+
+body ::-webkit-scrollbar-track{
+    background-color: white;
+    border-radius: 100px;
+}
+/* TOGGLE BUTTON */
+.toggle{
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    /* color: black;     */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+
+}
+.toggle::before{
+    content: '\f186';
+    font-family: fontAwesome;
+    font-size: 24px;
+}
+body.light .toggle{
+    background: white;
+    color: black;
+    
+}
+body.light .toggle::before{
+    content: '\f0eb';
+    font-family: fontAwesome;
+}
+body.light{
+    background-color: rgb(47, 35, 35);
+}
+body.light p{
+    color: white;
+}
